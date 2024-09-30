@@ -1,0 +1,29 @@
+<div class="bus-list-container">
+  <!-- Display the route and travel date -->
+  <div class="route-info">
+    <h2>Buses from {{ from }} to {{ to }}</h2>
+    <p>Travel Date: {{ travelDate }}</p>
+  </div>
+
+  <!-- List of available buses -->
+  <div *ngFor="let bus of buses" class="bus-item">
+    <div>
+      <strong>Bus Name:</strong> {{ bus.name }}
+    </div>
+    <div>
+      <strong>Departure Time:</strong> {{ bus.departureTime }}
+    </div>
+    <div>
+      <strong>Coach:</strong> {{ bus.coach }}
+    </div>
+    <div>
+      <strong>Seats Available:</strong> {{ bus.seatsAvailable }}
+    </div>
+    <div>
+      <strong>Fare:</strong> {{ bus.fare | currency }}
+    </div>
+    <div>
+      <button (click)="viewSeats(bus)">View Seats</button>
+    </div>
+  </div>
+</div>

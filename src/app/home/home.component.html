@@ -1,0 +1,55 @@
+<h1 class="company-heading">Travel with Us</h1>
+
+<div class="container">
+  <h2 class="subtitle">Search for Buses</h2>
+  
+  <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)" novalidate>
+    <div>
+      <label for="from">From:</label>
+      <input
+        type="text"
+        id="from"
+        name="from"
+        [(ngModel)]="from"
+        required
+        #fromInput="ngModel"
+
+      />
+      <div *ngIf="fromInput.invalid && fromInput.touched">
+        <small class="error">From location is required</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="to">To:</label>
+      <input
+        type="text"
+        id="to"
+        name="to"
+        [(ngModel)]="to"
+        required
+        #toInput="ngModel"
+      />
+      <div *ngIf="toInput.invalid && toInput.touched">
+        <small class="error">To location is required</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="travelDate">Travel Date:</label>
+      <input
+        type="date"
+        id="travelDate"
+        name="travelDate"
+        [(ngModel)]="travelDate"
+        required
+        #dateInput="ngModel"
+      />
+      <div *ngIf="dateInput.invalid && dateInput.touched">
+        <small class="error">Travel date is required</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="searchForm.invalid">Search Buses</button>
+  </form>
+</div>

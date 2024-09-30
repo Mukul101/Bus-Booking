@@ -1,0 +1,18 @@
+<div class="seat-selection-container">
+  <h2>Select Your Seat</h2>
+
+  <div class="seat-grid">
+    <div class="row" *ngFor="let row of seats">
+      <div 
+        class="seat-item" 
+        *ngFor="let seat of row" 
+        [ngClass]="{ 'selected': seat.isSelected, 'aisle': seat.isAisle }"
+        (click)="selectSeat(seat)"
+      >
+        {{ !seat.isAisle ? seat.seatNumber : '' }}
+      </div>
+    </div>
+  </div>
+
+  <button (click)="proceedToNextPage()">Proceed</button>
+</div>
